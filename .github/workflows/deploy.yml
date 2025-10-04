@@ -22,7 +22,7 @@ jobs:
         run: |
           docker buildx build \
             --platform linux/amd64 \
-            -t ${{ vars.ECR_REPO }} \
+            -t ${{ vars.ECR_REPO }}:latest\
             --push .
       - name: Force ECS service to redeploy
         run: |
