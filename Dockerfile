@@ -11,6 +11,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+
+# Change ownership to non-root user
+RUN chown -R Devops_user:Devops_user /app
+USER Devops_user
+
 # Expose Flask port
 EXPOSE 5000
 
